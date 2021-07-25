@@ -1,6 +1,6 @@
-import { UserInfo } from "../_constants/users.interface";
-import usersReducer from "./users.reducer";
-import * as usersActions from "../_actions/users.actions";
+import { UserInfo } from "../_constants/event.interface";
+import usersReducer from "./events.reducer";
+import * as usersActions from "../_actions/events.actions";
 
 describe("users reducer test", () => {
   let initialState = {

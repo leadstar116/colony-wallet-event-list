@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import renderer from "react-test-renderer";
-import { UserInfo } from "../_constants/users.interface";
-import User from "./User";
+import { UserInfo } from "../_constants/event.interface";
+import User from "./Event";
 
 describe("User Component", () => {
   const testUserInfo = {

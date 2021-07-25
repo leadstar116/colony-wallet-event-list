@@ -1,19 +1,9 @@
-import React, { useState } from "react";
-import Header from "../_components/Header";
-import UserList from "../_components/UserList";
+import React from "react";
+import EventsList from "../_components/EventsList";
 
 function HomePage() {
-  const [searchString, setSearchString] = useState("");
-
   return (
-    <div>
-      <Header
-        withSearchBar={true}
-        searchString={searchString}
-        setSearchString={setSearchString}
-      />
-      <UserList searchString={searchString} />
-    </div>
+    <EventsList />
   );
 }
 

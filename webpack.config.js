@@ -30,13 +30,9 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+        test: /\.(png|svg|jpg|jpeg|gif|ico|ttf)$/,
         exclude: /node_modules/,
         use: ["file-loader?name=[name].[ext]"], // ?name=[name].[ext] is only necessary to preserve the original file name
-      },
-      {
-        test: /\.json$/,
-        loader: "json-loader",
       },
     ],
   },
@@ -56,5 +52,13 @@ module.exports = {
       favicon: "./public/favicon.ico",
       manifest: "./public/manifest.json",
     }),
+  ],
+  node: {
+    fs: "empty",
+  },
+  externals: [
+    {
+      xmlhttprequest: "{XMLHttpRequest:XMLHttpRequest}",
+    },
   ],
 };
