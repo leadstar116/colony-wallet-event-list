@@ -12,7 +12,9 @@ This is a simple events log showing app from Colony wallet events.
 
 ## Screenshots
 
-<img src="https://www.screencast.com/t/wtmZXrXq" />
+Link: https://www.screencast.com/t/wtmZXrXq
+
+<img src="https://content.screencast.com/users/SupremeDev/folders/Capture/media/023c7000-e1ff-4df7-8d07-8201abe59172/2021-07-26_00-39-40.png" />
 
 # Project Run
 
