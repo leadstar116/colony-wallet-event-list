@@ -6,8 +6,8 @@ import {
   LocationEnum,
   LocationSettings,
 } from "../_constants/settings.interface";
-import UserList from "./UserList";
-import { UserInfo } from "../_constants/users.interface";
+import UserList from "./EventsList";
+import { UserInfo } from "../_constants/event.interface";
 
 describe("UserList Component", () => {
   const testUserInfo = {

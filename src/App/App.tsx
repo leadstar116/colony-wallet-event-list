@@ -16,16 +16,14 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="jumbotron min-vh-100 mb-0">
+    <div className="main-page min-vh-100 mb-0">
       <div className="container">
-        <div className="bg-white">
-          <Router history={history}>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route component={Page404} />
-            </Switch>
-          </Router>
-        </div>
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route component={Page404} />
+          </Switch>
+        </Router>
       </div>
     </div>
   );
