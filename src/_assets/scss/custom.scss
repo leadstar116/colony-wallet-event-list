@@ -1,0 +1,27 @@
+.user {
+  cursor: pointer;
+}
+.search-input {
+  max-width: 400px;
+}
+.settings-container {
+  max-width: 500px;
+  padding: 50px 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+.nationality-select {
+  min-width: 200px;
+}
+.error-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.error-actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.error-actions .btn {
+  margin-right: 10px;
+}
