@@ -92,11 +92,14 @@ const loadEventsFromColony = async (type: EventType) => {
         type,
       };
 
-      if (type === EventType.DOMAIN_ADDED || type === EventType.COLONY_ROLE_SET) {
+      if (
+        type === EventType.DOMAIN_ADDED ||
+        type === EventType.COLONY_ROLE_SET
+      ) {
         const humanReadableDomainId = new utils.BigNumber(
           singleLog.values.domainId
         ).toString();
-        singleLogResult['domainId'] = humanReadableDomainId;
+        singleLogResult["domainId"] = humanReadableDomainId;
       }
 
       if (type === EventType.PAYOUT_CLAMIMED) {
@@ -112,23 +115,25 @@ const loadEventsFromColony = async (type: EventType) => {
           associatedTypeId
         );
 
-        singleLogResult['userAddress'] = userAddress;
+        singleLogResult["userAddress"] = userAddress;
 
-        const humanReadableAmount = new utils.BigNumber(singleLog.values.amount);
+        const humanReadableAmount = new utils.BigNumber(
+          singleLog.values.amount
+        );
         const wei = new utils.BigNumber(10);
 
         // The converted amount is the human readable amount divided by the wei value raised to the power of 18
         const convertedAmount = humanReadableAmount.div(wei.pow(18)).toString();
-        singleLogResult['amount'] = convertedAmount;
-        singleLogResult['fundingPotId'] = humanReadableFundingPotId;
+        singleLogResult["amount"] = convertedAmount;
+        singleLogResult["fundingPotId"] = humanReadableFundingPotId;
       }
 
       if (type === EventType.COLONY_ROLE_SET) {
-        singleLogResult['role'] = ColonyRole[singleLog.values.role];
-        singleLogResult['userAddress'] = singleLog.values.user;
+        singleLogResult["role"] = ColonyRole[singleLog.values.role];
+        singleLogResult["userAddress"] = singleLog.values.user;
       }
 
-      singleLogResult['token'] = singleLog.values.token;
+      singleLogResult["token"] = singleLog.values.token;
       return singleLogResult;
     })
   );
@@ -154,7 +159,14 @@ export const loadEvents = () => async (dispatch: MyThunkDispatch) => {
     );
 
     let allLogs: EventLog[] = [];
-    allLogs = allLogs.concat(payoutClaimedEvents, colonyInitialisedEvents, domainAddedEvents, roleSetEvents).sort((a, b) => b.logTime - a.logTime);
+    allLogs = allLogs
+      .concat(
+        payoutClaimedEvents,
+        colonyInitialisedEvents,
+        domainAddedEvents,
+        roleSetEvents
+      )
+      .sort((a, b) => b.logTime - a.logTime);
 
     dispatch(eventsLoadedSuccessfully(allLogs));
     dispatch(alertClear());
