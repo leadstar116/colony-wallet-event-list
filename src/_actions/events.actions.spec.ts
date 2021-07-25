@@ -1,84 +1,24 @@
-import * as usersActions from "./events.actions";
-import { UserInfo } from "../_constants/event.interface";
+import * as eventsAction from "./events.actions";
+import { EventLog, EventType } from "../_constants/event.interface";
 
-const testUserInfo = {
-  email: "test@test.com",
-  name: {
-    first: "James",
-    last: "Bond",
-    username: "james-bond",
-  },
-  picture: {
-    large: "https://randomuser.me/api/portraits/men/75.jpg",
-    medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-    thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
-  },
-  cell: "+14325432870",
-  dob: {
-    date: "1993-07-20T09:44:18.674Z",
-    age: 26,
-  },
-  gender: "male",
-  location: {
-    street: {
-      name: "9278 new road",
-      number: 12,
-    },
-    city: "kilcoole",
-    state: "waterford",
-    postcode: 93027,
-    country: "CH",
-    coordinates: {
-      latitude: "20.9267",
-      longitude: "-7.9310",
-    },
-    timezone: {
-      offset: "-3:30",
-      description: "Newfoundland",
-    },
-  },
-  nat: "CH",
-  phone: "+14325432870",
-  id: {
-    name: "testuser111",
-    value: "12",
-  },
-  login: {
-    username: "test",
-  },
-} as UserInfo;
+const testEventLog: EventLog = {
+  logTime: 1519211809934,
+  type: EventType.PAYOUT_CLAMIMED,
+  userAddress: "0xF0CdfA126a944849A6e9982253CD5259AfAe0355",
+  amount: "30",
+  fundingPotId: "190x6B175474E89094C44Da98b954EedeAC495271d0F",
+  token: "4D22AS",
+};
 
-describe("load users successfully action test", () => {
-  it("should return loaded users", () => {
-    const users = [testUserInfo] as UserInfo[];
+describe("load event successfully action test", () => {
+  it("should return loaded event", () => {
+    const events: EventLog[] = [testEventLog];
     const expectedAction = {
-      type: usersActions.USER_LOADED_SUCCESSFULLY,
-      payload: { users },
+      type: eventsAction.EVENTS_LOADED_SUCCESSFULLY,
+      payload: { events },
     };
-    expect(usersActions.userLoadedSuccessfully(users)).toEqual(expectedAction);
-  });
-});
-
-describe("update preloaded users flag action test", () => {
-  describe("When flag is true", () => {
-    it("should return true", () => {
-      const flag = true;
-      const expectedAction = {
-        type: usersActions.UPDATE_PRELOADED_FLAG,
-        payload: { flag },
-      };
-      expect(usersActions.updatePreloadedFlag(flag)).toEqual(expectedAction);
-    });
-  });
-
-  describe("When flag is false", () => {
-    it("should return false", () => {
-      const flag = false;
-      const expectedAction = {
-        type: usersActions.UPDATE_PRELOADED_FLAG,
-        payload: { flag },
-      };
-      expect(usersActions.updatePreloadedFlag(flag)).toEqual(expectedAction);
-    });
+    expect(eventsAction.eventsLoadedSuccessfully(events)).toEqual(
+      expectedAction
+    );
   });
 });
