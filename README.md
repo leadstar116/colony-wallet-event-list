@@ -12,8 +12,7 @@ This is a simple events log showing app from Colony wallet events.
 
 ## Screenshots
 
-You can check video here: https://www.screencast.com/t/mq55Elc3u
-[![Watch the video](https://p47.f4.n0.cdn.getcloudapp.com/items/04uYXJ5g/Image%202020-07-20%20at%205.13.31%20AM.png?v=0eb6b99707a54f3f306021e0b7e66894)](https://www.screencast.com/t/mq55Elc3u)
+<img src="https://www.screencast.com/t/wtmZXrXq" />
 
 # Project Run
 
@@ -64,7 +63,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 
-## Colony Test Task Details
 
 # Colony Coding Challenge
 
